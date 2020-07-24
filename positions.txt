@@ -1,0 +1,67 @@
+3player
+SB  B
+BB  M
+DB  L
+
+4player
+SB  B
+BB  B
+UG  M
+DB  L
+
+5player
+SB  B
+BB  B
+UG  E
+CO  M
+DB  L
+
+6player
+SB  B
+BB  B
+UG  E
+HJ  M
+CO  L
+DB  L
+
+7player
+SB  B
+BB  B
+UG  E
+MP  M
+HJ  M
+CO  L
+DB  L
+
+8player
+SB  B
+BB  B
+UG  E
+U1  E
+MP  M
+HJ  M
+CO  L
+DB  L
+
+9player
+SB  B
+BB  B
+UG  E
+U1  E
+MP  M
+LJ  M
+HJ  L
+CO  L
+DB  L
+
+10player
+SB  B
+BB  B
+UG  E
+U1  E
+U2  E
+MP  M
+LJ  M
+HJ  L
+CO  L
+DB  L
