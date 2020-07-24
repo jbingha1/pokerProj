@@ -10,6 +10,7 @@ import pandas as pd
 
 numRanks = 13
 numCards = 52
+# All possible hands
 hands = [["AA", "AKs", "AQs", "AJs", "ATs", "A9s", "A8s", "A7s", "A6s", "A5s", "A4s", "A3s", "A2s"],
         ["AKo", "KK", "KQs", "KJs", "KTs", "K9s", "K8s", "K7s", "K6s", "K5s", "K4s", "K3s", "K2s"],
         ["AQo", "KQo", "QQ", "QJs", "QTs", "Q9s", "Q8s", "Q7s", "Q6s", "Q5s", "Q4s", "Q3s", "Q2s"],
@@ -24,6 +25,7 @@ hands = [["AA", "AKs", "AQs", "AJs", "ATs", "A9s", "A8s", "A7s", "A6s", "A5s", "
         ["A3o", "K3o", "Q3o", "J3o", "T3o", "93o", "83o", "73o", "63o", "53o", "43o", "33", "32s"],
         ["A2o", "K2o", "Q2o", "J2o", "T2o", "92o", "82o", "72o", "62o", "52o", "42o", "32o", "22"]]
 
+# All simplified positions based on number of players
 positions = [['B', 'B', 'E', 'E', 'E', 'M', 'M', 'L', 'L', 'L'],
 ['B', 'B', 'E', 'E', 'M', 'M', 'L', 'L', 'L'],
 ['B', 'B', 'E', 'E', 'M', 'M', 'L', 'L'],
@@ -32,6 +34,7 @@ positions = [['B', 'B', 'E', 'E', 'E', 'M', 'M', 'L', 'L', 'L'],
 ['B', 'B', 'E', 'M', 'L'],
 ['B', 'B', 'M', 'L']]
 
+# Plots a player's range
 def plot(data, title):
 
     matrix = np.array(data)
@@ -56,6 +59,7 @@ def plot(data, title):
     ax.set_title(title)
     plt.show()
 
+# Create's a players range
 def createRange(list):
 
     indices = []
@@ -146,6 +150,7 @@ def createObj():
                 d.append(c)
     return obj
 
+# Plots knn clustered play styles
 def plotPlayStyles(obj):
     simp = {}
     for player in obj:
@@ -202,6 +207,7 @@ def plotPlayStyles(obj):
 
     return simp
 
+# Plots players' odds of playing hands based on their position
 def plotPositionPercents(obj):
     X = ["Early Position", "Middle Position", "Late Position"]
 
@@ -249,6 +255,7 @@ def plotPositionPercents(obj):
     plt.show()
     print(y)
 
+# Plots players' odds of playing hands based on number of players in a hand
 def plotPlayerPercents():
     f = open("allHands.txt", "r")
     hands = f.read().split("chips\n")
@@ -319,10 +326,34 @@ def plotPlayerPercents():
     plt.legend()
     plt.show()
 
-obj = createObj()
-o = plotPlayStyles(obj)
-f = o["mtgallo2"]["folded"]
-r = o["mtgallo2"]["raised"]
-c = o["mtgallo2"]["called"]
-a = createRange([r/(f+r+c), (r+c)/(f+r+c)])
-plot(a, "mtgallo2 range")
+
+
+
+# Uncomment below lines to plot mtgallo2's range
+# obj = createObj()
+# o = plotPlayStyles(obj)
+# f = o["mtgallo2"]["folded"]
+# r = o["mtgallo2"]["raised"]
+# c = o["mtgallo2"]["called"]
+# a = createRange([r/(f+r+c), (r+c)/(f+r+c)])
+# plot(a, "mtgallo2 range")
+
+# Uncomment below lines to plot jonnybows's range
+# obj = createObj()
+# o = plotPlayStyles(obj)
+# f = o["mtgallo2"]["folded"]
+# r = o["mtgallo2"]["raised"]
+# c = o["mtgallo2"]["called"]
+# a = createRange([r/(f+r+c), (r+c)/(f+r+c)])
+# plot(a, "mtgallo2 range")
+
+# Uncomment the below lines to plot players' hand % played vs number of players in hand
+# plotPlayerPercents()
+
+# Uncomment the below lines to plot players' hand % played vs player position
+# obj = createObj()
+# plotPositionPercents(obj)
+
+# Uncomment the below lines to plot players' players' play styles
+# obj = createObj()
+# plotPlayStyles(obj)
